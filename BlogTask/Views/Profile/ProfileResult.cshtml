@@ -1,0 +1,21 @@
+﻿
+@{
+    ViewBag.Title = "Your Profile";
+}
+<h2>Ваш профиль</h2>
+<p>Имя: @ViewBag.Name</p>
+<p>Фамилия: @ViewBag.Surname</p>
+<p>Дата рождения: @ViewBag.Birth</p>
+<p>Пол: @ViewBag.Gender</p>
+<p>Страна: @ViewBag.Country</p>
+<p>Языки:</p>
+@if (ViewBag.Language != null)
+{
+    <ul>
+        @foreach (var item in ViewBag.Language)
+        {
+            <li>@item</li>
+        }
+    </ul>
+}
+

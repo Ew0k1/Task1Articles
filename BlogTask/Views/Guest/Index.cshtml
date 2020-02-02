@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Отзывы</h2>
+
+@using (Html.BeginForm("AddReview", "Guest", FormMethod.Post))
+{
+    <p>Введите свое имя: </p>
+    @Html.TextBox("name", "Введите имя")
+    <p>Отзыв:</p>
+    @Html.TextArea("review", "")
+    <p><input type="submit" value="Отправить" /></p>
+}
+<br />
+@foreach (var i in ViewBag.ReviewsBag)
+{
+    foreach (var j in i)
+    {
+        <p>@j</p>
+        <br />
+    }
+    <hr />
+}
+
+
+
+

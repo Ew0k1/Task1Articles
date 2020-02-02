@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="header container-fluid bg-dark text-white">
+        <div class="row">
+            <div class="col-1 logo ">
+                <a href="/Home/Index"><img src="~/Content/logo.png" height="50" alt="logo" /></a>
+            </div>
+            <div class="col title">
+                <h3>Test Blog</h3>
+            </div>
+            <div class="col-1"></div>
+        </div>
+    </div>
+
+
+    <div class="page">
+        <div class="content" id="content">
+            <div class="row">
+                <div class="col-10 articles">  @RenderBody()</div>
+
+                <div class="col-sm-4 col-xl-2 col-md-2 col-lg-2 ">
+                    <div id="basicSidebar" class="pmd-sidebar" role="navigation">
+                        <div class="nav flex-column pmd-sidebar-nav menu">
+                            <div class="nav-item">
+                                <a class="nav-link" href="/Home/Index">
+                                    <span>Главная</span>
+                                </a>
+                            </div>
+
+                            <div class="nav-item">
+                                <a class="nav-link" href="/Guest/Index">
+                                    <span>Гостевая</span>
+                                </a>
+                            </div>
+                            <div class="nav-item">
+                                <a class="nav-link" href="/Profile/Index">
+                                    <span>Анкета</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+    <footer class="page-footer navbar-fixed-bottom">
+        <div class="footer container-fluid bg-dark text-center text-white py-3">
+            <div class="row">
+                <div class="col-1">
+
+                </div>
+                <div class="col-10 copy">
+                    © 2020 Copyright: Yevhenii Bas
+                </div>
+                <div class="col-1">
+                    <div class="back">
+                        <a href="#content"><img src="https://img.icons8.com/flat_round/64/000000/collapse-arrow--v1.png" height="50" alt="backToTop" /></a>
+
+
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+    </footer>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

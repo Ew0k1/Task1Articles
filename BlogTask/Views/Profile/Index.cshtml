@@ -1,0 +1,64 @@
+﻿@{
+    ViewBag.Title = "Index";
+
+}
+@{
+    var countries = new List<SelectListItem>(){
+         new SelectListItem(){Value="Ukraine",Text="Украина"},
+        new SelectListItem(){Value="Australia",Text="Австралия "},
+        new SelectListItem(){Value="Austria",Text="Австрия "},
+        new SelectListItem(){Value="Argentina",Text="Аргентина"},
+        new SelectListItem(){Value="Belarus",Text="Белоруссия "},
+        new SelectListItem(){Value="Belgium",Text="Бельгия"},
+        new SelectListItem(){Value="Bulgaria",Text="Болгария "},
+        new SelectListItem(){Value="Brazil",Text="Бразилия "},
+        new SelectListItem(){Value="Great Britain",Text="Великобритания"},
+        new SelectListItem(){Value="Germany",Text="Германия"},
+        new SelectListItem(){Value="China",Text="Китай"},
+        new SelectListItem(){Value="Latvia",Text="Латвия"},
+        new SelectListItem(){Value="Lithuania",Text="Литва"},
+        new SelectListItem(){Value="Norway",Text="Норвегия"},
+        new SelectListItem(){Value="Poland",Text="Польша"},
+        new SelectListItem(){Value="Portugal",Text="Португалия"},
+        new SelectListItem(){Value="Russia",Text="Россия"},
+        new SelectListItem(){Value="USA",Text="США"},
+        new SelectListItem(){Value="France",Text="Франция"},
+        new SelectListItem(){Value="Czech",Text="Чехия"},
+        new SelectListItem(){Value="Switzerland",Text="Швейцария "},
+        new SelectListItem(){Value="Sweden",Text="Швеция"},
+        new SelectListItem(){Value="Estonia",Text="Эстония"},
+        new SelectListItem(){Value="Japan",Text="Япония"}
+    };
+}
+@using BlogTask.Helpers;
+
+<h2>Анкета</h2>
+<p>Введите данные:</p>
+
+@using (Html.BeginForm("ProfileResult", "Profile", FormMethod.Post))
+{
+    <span>Фамилия:</span>
+    @Html.TextBox("surname", "");
+    <br />
+    <span>Имя:</span>
+    @Html.TextBox("name", "");
+    <br />
+    <span>Дата рождения:</span>
+    <input type="date" name="birth"
+           min="1900-01-01" max="2020-01-31">
+    <br />
+    <span>Пол:</span>
+    @Html.ListArrayStringItems(ViewBag.Genders as string[], "radio", "gender");
+    <span>Страна:</span>
+    @Html.DropDownList("country", countries);
+    <br />
+    <br />
+
+    <span>Языки:</span>
+    @Html.ListArrayStringItems(ViewBag.Languages as string[], "checkbox", "language");
+
+    <p><input type="submit" value="Отправить" /></p>
+}
+@*<input id="color" name="color" type="radio" value="red" />
+    <span>красный</span>
+    <br />*@
